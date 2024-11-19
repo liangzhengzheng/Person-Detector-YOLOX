@@ -11,7 +11,7 @@ class Exp(MyExp):
         self.num_classes = 1
         self.depth = 0.67
         self.width = 0.75
-        self.warmup_epochs = 1
+        self.warmup_epochs = 2
         # max training epoch
         self.max_epoch = 100
         # minimum learning rate during warmup
@@ -27,10 +27,13 @@ class Exp(MyExp):
         self.ema = True
 
         # ---------- preparation config ------------ #
-        self.mosaic_prob = 1.0
-        self.mixup_prob = 1.0
+        self.mosaic_prob = 0
+        self.enable_mixup = True
+        self.mixup_prob = 0.8
         self.hsv_prob = 1.0
         self.flip_prob = 0.5
+
+        self.no_aug_epochs = 10
 
 
 

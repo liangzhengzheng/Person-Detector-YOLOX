@@ -11,9 +11,9 @@ class Exp(MyExp):
         self.num_classes = 1
         self.depth = 0.33
         self.width = 0.375
-        self.input_size = (640, 640)
-        self.test_size = (640, 640)
-        self.warmup_epochs = 1
+        self.input_size = (800, 1280) #640,640
+        self.test_size = (800, 1280)  #640,640
+        self.warmup_epochs = 2
         self.eval_interval = 1
         self.max_epoch = 100
         # minimum learning rate during warmup
@@ -29,10 +29,16 @@ class Exp(MyExp):
         self.ema = True
 
         # ---------- preparation config ------------ #
+        self.degrees = 0 #10.0
         self.mosaic_prob = 0
+        self.mosaic_scale = (0.1, 2)
+        self.enable_mixup = False
+        self.mixup_scale = (0.5, 1.5)
         self.mixup_prob = 0
         self.hsv_prob = 1.0
         self.flip_prob = 0.5
+        self.momentum = 0.8
+        self.save_history_ckpt = False
 
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
 

@@ -23,13 +23,13 @@ IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
 def make_parser():
     parser = argparse.ArgumentParser("YOLOX Demo!")
     parser.add_argument(
-        "--demo", default="image", help="demo type, eg. image, video and webcam"
+        "--demo", default="video", help="demo type, eg. image, video and webcam"
     )
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
     parser.add_argument("-n", "--name", type=str, default=None, help="model name")
 
     parser.add_argument(
-        "--path", default="./assets/222.jpg", help="path to images or video"
+        "--path", default="./videos/1.mp4", help="path to images or video"
     )
     parser.add_argument("--camid", type=int, default=0, help="webcam demo camera id")
     parser.add_argument(
@@ -42,18 +42,18 @@ def make_parser():
     parser.add_argument(
         "-f",
         "--exp_file",
-        default="exps/example/yolox_voc/yolox_voc_tiny.py",
+        default="exps/example/yolox_voc/yolox_voc_l.py",
         type=str,
         help="please input your experiment description file",
     )
-    parser.add_argument("-c", "--ckpt", default="./weights/best_ckpt.pth", type=str, help="ckpt for eval")
+    parser.add_argument("-c", "--ckpt", default="./weights/yolox_voc_l.pth", type=str, help="ckpt for eval")
     parser.add_argument(
         "--device",
         default="gpu",
         type=str,
         help="device to run our model, can either be cpu or gpu",
     )
-    parser.add_argument("--conf", default=0.25, type=float, help="test conf")
+    parser.add_argument("--conf", default=0.20, type=float, help="test conf")
     parser.add_argument("--nms", default=0.45, type=float, help="test nms threshold")
     parser.add_argument("--tsize", default=640, type=int, help="test img size")
     parser.add_argument(
